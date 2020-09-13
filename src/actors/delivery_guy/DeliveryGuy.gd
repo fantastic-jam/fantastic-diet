@@ -32,13 +32,17 @@ var _speed = _max_speed
 var _speed_decay = 10
 export var _min_speed = 5
 
+var rng = RandomNumberGenerator.new()
+
 func _ready() -> void:
+	rng.randomize()
+
 	_grunt_bubble.visible = false
 	_pizza_sprite.visible = _pizza
 	random_skin()
 	
 func random_skin() -> void:
-	_sprite.region_rect = regions[randi() % regions.size()]
+	_sprite.region_rect = regions[rng.randi() % regions.size()]
 
 func _process(delta: float) -> void:
 	if _grunting:
