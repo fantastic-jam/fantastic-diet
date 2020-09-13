@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hey-05.ogg-c9e4c0bc1147b495017d77298f487a07.oggstr"
+
+[deps]
+
+source_file="res://assets/snd/bruno/hey-05.ogg"
+dest_files=[ "res://.import/hey-05.ogg-c9e4c0bc1147b495017d77298f487a07.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

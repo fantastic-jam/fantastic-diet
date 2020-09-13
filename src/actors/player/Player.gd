@@ -13,15 +13,23 @@ onready var _animation_player = get_node("AnimationPlayer")
 onready var _sprite = get_node("Sprite")
 onready var _hunger_bar = get_node("HungerBarNode/HungerBar")
 onready var _hey_bubble = get_node("HeyBubble")
+var _hey_sounds = []
+var _hey_sound_num = 6
+var _eat_sound = preload("res://assets/snd/bruno/nom.ogg")
 onready var _shout_area = get_node("ShoutArea")
 onready var _root = get_tree().current_scene 
 
 var _hunger = 100
-var _hunger_decay = 8
+var _hunger_decay = 7.5
 var _food_value = 5
 
 func _ready() -> void:
 	_hey_bubble.visible = false
+	for i in range(_hey_sound_num):
+		var sound = "res://assets/snd/bruno/hey-%02d.ogg" % (i + 1)
+		print(sound)
+		_hey_sounds.append(load(sound))
+
 
 func _process(delta: float) -> void:
 	update_hunger(_hunger - (_hunger_decay * delta))
@@ -75,6 +83,7 @@ func _on_eat_zone_exited(eat_zone: Area2D) -> void:
 func eat() -> void:
 	var eaten = _eat_zone.eat()
 	if eaten:
+		play_sound("Speech", _eat_sound)
 		update_hunger(_hunger + _food_value)
 
 func shout() -> void:
@@ -84,6 +93,7 @@ func shout() -> void:
 		_last_shout = now
 		_hey_bubble.visible = true
 		_shout_area.monitoring = true
+		play_sound("Speech", _hey_sounds[randi() % _hey_sound_num])
 
 func _on_ShoutArea_body_entered(body: Node) -> void:
 	if body.has_method("on_shouted_on"):

@@ -17,7 +17,7 @@ extents = Vector2( 4, 4 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 72.4431
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Walk"
 length = 0.5
 loop = true
@@ -47,10 +47,10 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.101961, 0.501961, 0.176471, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.509804, 0.00392157, 0.00392157, 1 )
 
 [sub_resource type="Animation" id=6]
@@ -122,6 +122,8 @@ collision_mask = 7
 script = ExtResource( 2 )
 speed = 300
 
+[node name="Speech" type="AudioStreamPlayer" parent="Bruno"]
+
 [node name="HeyBubble" type="Sprite" parent="Bruno"]
 position = Vector2( 28, -8 )
 scale = Vector2( 0.25, 0.25 )
@@ -150,7 +152,7 @@ position = Vector2( 8, 8 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bruno"]
-anims/Walk = SubResource( 5 )
+anims/Walk = SubResource( 3 )
 
 [node name="HungerBarNode" type="Node2D" parent="Bruno"]
 z_index = 4096
@@ -160,8 +162,8 @@ z_as_relative = false
 margin_top = -3.0
 margin_right = 16.0
 margin_bottom = -1.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 step = 1.0
 percent_visible = false
 __meta__ = {
