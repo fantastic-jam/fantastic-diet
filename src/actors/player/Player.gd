@@ -85,7 +85,7 @@ func eat() -> void:
 	var eaten = _eat_zone.eat()
 	if eaten:
 		play_sound("Speech", _eat_sound)
-		update_hunger(_hunger + _food_value)
+		update_hunger(min(_hunger + _food_value, 100))
 
 func shout() -> void:
 	var now = OS.get_ticks_msec()
