@@ -27,7 +27,6 @@ func _ready() -> void:
 	_hey_bubble.visible = false
 	for i in range(_hey_sound_num):
 		var sound = "res://assets/snd/bruno/hey-%02d.ogg" % (i + 1)
-		print(sound)
 		_hey_sounds.append(load(sound))
 
 
