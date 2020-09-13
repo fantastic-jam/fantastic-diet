@@ -1,0 +1,220 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sprites/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
+[ext_resource path="res://src/actors/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/tilesets/dungeon.tres" type="TileSet" id=3]
+[ext_resource path="res://src/actors/delivery_guy/DeliveryGuy.gd" type="Script" id=4]
+[ext_resource path="res://src/zones/eat/EatZone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_rules/GameRules.gd" type="Script" id=6]
+[ext_resource path="res://src/actors/pizza/PizzaSprite.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/bubbles/hey-bubble.png" type="Texture" id=8]
+[ext_resource path="res://assets/bubbles/grunt-buble.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/game-over.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 72.4431
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.101961, 0.501961, 0.176471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.509804, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PizzaSprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="BgTileMap" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 65537, 1, 2, 65537, 2, 2, 65537, 3, 2, 65537, 4, 2, 3, 5, 2, 65537, 6, 2, 65537, 7, 2, 65537, 8, 2, 65537, 9, 2, 65537, 10, 2, 65537, 11, 2, 65537, 12, 2, 65537, 13, 2, 65537, 14, 2, 65537, 15, 2, 65537, 16, 2, 65537, 17, 2, 65537, 18, 2, 65536, 19, 2, 65536, 65536, 2, 65537, 65537, 2, 65537, 65538, 2, 262144, 65539, 2, 65537, 65540, 2, 65537, 65541, 2, 65537, 65542, 2, 65537, 65543, 2, 65537, 65544, 2, 65537, 65545, 2, 65539, 65546, 2, 65537, 65547, 2, 196613, 65548, 2, 65537, 65549, 2, 65537, 65550, 2, 65537, 65551, 2, 65540, 65552, 2, 65537, 65553, 2, 65537, 65554, 2, 131076, 65555, 2, 65537, 131072, 2, 131072, 131073, 2, 131072, 131074, 2, 327680, 131075, 2, 131072, 131076, 2, 131072, 131077, 2, 131073, 131078, 2, 131074, 131079, 2, 131073, 131080, 2, 131072, 131081, 2, 327684, 131082, 2, 131072, 131083, 2, 131074, 131084, 2, 131073, 131085, 2, 131072, 131086, 2, 131073, 131087, 2, 131072, 131088, 2, 131072, 131089, 2, 131073, 131090, 2, 131074, 131091, 2, 131072, 196608, 2, 196610, 196609, 2, 196610, 196610, 2, 196610, 196611, 2, 196610, 196612, 2, 196610, 196613, 2, 196610, 196614, 2, 196610, 196615, 2, 196610, 196616, 2, 196610, 196617, 2, 196610, 196618, 2, 196610, 196619, 2, 196610, 196620, 2, 196610, 196621, 2, 196610, 196622, 2, 196610, 196623, 2, 196610, 196624, 2, 196610, 196625, 2, 196610, 196626, 2, 196610, 196627, 2, 196610, 262144, 2, 196610, 262145, 2, 196610, 262146, 5, 65536, 262147, 2, 196610, 262148, 2, 196610, 262149, 2, 196610, 262150, 2, 196610, 262151, 2, 196610, 262152, 2, 196610, 262153, 2, 196610, 262154, 2, 196610, 262155, 2, 196610, 262156, 2, 196610, 262157, 2, 196610, 262158, 2, 196610, 262159, 2, 196610, 262160, 2, 196610, 262161, 2, 196610, 262162, 2, 196610, 262163, 2, 196610, 327680, 2, 196610, 327681, 2, 196610, 327682, 2, 196610, 327683, 2, 196610, 327684, 2, 196610, 327685, 2, 196610, 327686, 2, 196610, 327687, 2, 196610, 327688, 2, 196610, 327689, 2, 196610, 327690, 2, 196610, 327691, 2, 196610, 327692, 2, 196610, 327693, 2, 196610, 327694, 2, 196610, 327695, 2, 196610, 327696, 2, 196610, 327697, 2, 196610, 327698, 2, 196610, 327699, 2, 196610, 393216, 2, 196610, 393217, 2, 196610, 393218, 2, 196610, 393219, 2, 196610, 393220, 2, 196610, 393221, 2, 196610, 393222, 2, 196610, 393223, 2, 196610, 393224, 2, 196610, 393225, 2, 196610, 393226, 2, 196610, 393227, 2, 196610, 393228, 2, 196610, 393229, 2, 196610, 393230, 2, 196610, 393231, 2, 196610, 393232, 2, 196610, 393233, 2, 196610, 393234, 2, 196610, 393235, 2, 196610, 458752, 2, 196610, 458753, 2, 196610, 458754, 2, 196610, 458755, 2, 196610, 458756, 2, 196610, 458757, 2, 196610, 458758, 2, 196610, 458759, 2, 196610, 458760, 2, 196610, 458761, 2, 196610, 458762, 2, 196610, 458763, 2, 196610, 458764, 2, 196610, 458765, 2, 196610, 458766, 2, 196610, 458767, 2, 196610, 458768, 2, 196610, 458769, 2, 196610, 458770, 2, 196610, 458771, 2, 196610, 524288, 2, 196610, 524289, 2, 196610, 524290, 2, 196610, 524291, 2, 196610, 524292, 2, 196610, 524293, 2, 196610, 524294, 2, 196610, 524295, 2, 196610, 524296, 2, 196610, 524297, 2, 196610, 524298, 2, 196610, 524299, 2, 196610, 524300, 2, 196610, 524301, 2, 196610, 524302, 2, 196610, 524303, 2, 196610, 524304, 2, 196610, 524305, 2, 196610, 524306, 2, 196610, 524307, 2, 196610, 589824, 2, 196610, 589825, 2, 196610, 589826, 2, 196610, 589827, 2, 196610, 589828, 2, 196610, 589829, 2, 196610, 589830, 2, 196610, 589831, 2, 196610, 589832, 2, 196610, 589833, 2, 196610, 589834, 2, 196610, 589835, 2, 196610, 589836, 2, 196610, 589837, 2, 196610, 589838, 2, 196610, 589839, 2, 196610, 589840, 2, 196610, 589841, 2, 196610, 589842, 2, 196610, 589843, 2, 196610, 655360, 2, 196610, 655361, 2, 196610, 655362, 2, 196610, 655363, 2, 196610, 655364, 2, 196610, 655365, 2, 196610, 655366, 2, 196610, 655367, 2, 196610, 655368, 2, 196610, 655369, 2, 196610, 655370, 2, 196610, 655371, 2, 196610, 655372, 2, 196610, 655373, 2, 196610, 655374, 2, 196610, 655375, 2, 196610, 655376, 2, 196610, 655377, 2, 196610, 655378, 2, 196610, 655379, 2, 196610, 720896, 2, 196610, 720897, 2, 196610, 720898, 2, 196610, 720899, 2, 196610, 720900, 2, 196610, 720901, 2, 196610, 720902, 2, 196610, 720903, 2, 196610, 720904, 2, 196610, 720905, 2, 196610, 720906, 2, 196610, 720907, 2, 196610, 720908, 2, 196610, 720909, 2, 196610, 720910, 2, 196610, 720911, 2, 196610, 720912, 2, 196610, 720913, 2, 196610, 720914, 2, 196610, 720915, 2, 196610 )
+
+[node name="FgTileMap" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+z_index = 1000
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 196610, 5, 0, 524288, 2, 1, 524289, 2, 1, 524290, 2, 1, 524291, 2, 1, 524292, 2, 1, 524293, 2, 1, 524294, 2, 1, 524295, 2, 1, 524296, 2, 1, 524297, 2, 1, 524298, 2, 1, 524299, 2, 1, 524300, 2, 1, 524301, 2, 1, 524302, 2, 1, 524303, 2, 1, 524304, 2, 1, 524305, 2, 1, 524306, 2, 1, 524307, 2, 1, 589824, 2, 65537, 589825, 2, 131076, 589826, 2, 65537, 589827, 2, 65537, 589828, 2, 3, 589829, 2, 65537, 589830, 2, 65537, 589831, 2, 65537, 589832, 2, 65537, 589833, 2, 65537, 589834, 2, 65537, 589835, 2, 65537, 589836, 2, 65537, 589837, 2, 65537, 589838, 2, 65537, 589839, 2, 65537, 589840, 2, 65537, 589841, 2, 65537, 589842, 2, 131076, 589843, 2, 65537, 655360, 2, 65537, 655361, 2, 65537, 655362, 2, 65537, 655363, 2, 131076, 655364, 2, 65537, 655365, 2, 65537, 655366, 2, 65537, 655367, 2, 65537, 655368, 2, 131076, 655369, 2, 65537, 655370, 2, 65537, 655371, 2, 3, 655372, 2, 65537, 655373, 2, 131076, 655374, 2, 65537, 655375, 2, 196612, 655376, 2, 65537, 655377, 2, 65537, 655378, 2, 65537, 655379, 2, 65537, 720896, 2, 65537, 720897, 2, 65537, 720898, 2, 65537, 720899, 2, 65537, 720900, 2, 65537, 720901, 2, 65537, 720902, 2, 196612, 720903, 2, 65537, 720904, 2, 65537, 720905, 2, 65537, 720906, 2, 65537, 720907, 2, 196612, 720908, 2, 65537, 720909, 2, 65537, 720910, 2, 65537, 720911, 2, 196613, 720912, 2, 65537, 720913, 2, 65537, 720914, 2, 65537, 720915, 2, 65537 )
+
+[node name="Bruno" type="KinematicBody2D" parent="."]
+position = Vector2( 0, 96 )
+scale = Vector2( 2, 2 )
+collision_mask = 7
+script = ExtResource( 2 )
+speed = 300
+
+[node name="HeyBubble" type="Sprite" parent="Bruno"]
+position = Vector2( 28, -8 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 2000
+z_as_relative = false
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Bruno"]
+scale = Vector2( 1, 1.03265 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -0.652905 )
+region_enabled = true
+region_rect = Rect2( 96, 224, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno"]
+position = Vector2( 8, 12 )
+shape = SubResource( 1 )
+
+[node name="ShoutArea" type="Area2D" parent="Bruno"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno/ShoutArea"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bruno"]
+anims/Walk = SubResource( 5 )
+
+[node name="HungerBarNode" type="Node2D" parent="Bruno"]
+z_index = 4096
+z_as_relative = false
+
+[node name="HungerBar" type="ProgressBar" parent="Bruno/HungerBarNode"]
+margin_top = -3.0
+margin_right = 16.0
+margin_bottom = -1.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeliveryGuy" type="KinematicBody2D" parent="."]
+position = Vector2( 576, 128 )
+scale = Vector2( 2, 2 )
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeliveryGuy"]
+autoplay = "Walk"
+anims/Walk = SubResource( 6 )
+
+[node name="PizzaSprite" parent="DeliveryGuy" instance=ExtResource( 7 )]
+position = Vector2( 0, 8 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = null
+
+[node name="Sprite" type="Sprite" parent="DeliveryGuy"]
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 128, 224, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryGuy"]
+position = Vector2( 8, 12 )
+shape = SubResource( 1 )
+
+[node name="GruntBubble" type="Sprite" parent="DeliveryGuy"]
+position = Vector2( 20, -4 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 2000
+z_as_relative = false
+texture = ExtResource( 9 )
+
+[node name="EatZone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, 104 )
+z_index = 1001
+eat_bar = 0
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+scale = Vector2( 6, 6 )
+z_index = 4096
+
+[node name="game-over" type="Sprite" parent="GameOver"]
+position = Vector2( 53.3333, 34.6667 )
+scale = Vector2( 0.0574434, 0.0574434 )
+texture = ExtResource( 10 )
+[connection signal="body_entered" from="Bruno/ShoutArea" to="Bruno" method="_on_ShoutArea_body_entered"]
