@@ -60,7 +60,9 @@ func _physics_process(delta: float) -> void:
 		0
 	)
 	move_and_slide(velocity, Vector2.UP)
-	if position.x > 640 || position.x < 200:
+	if position.x > 640 && _direction == 1:
+		flip()
+	if 	position.x < 200 && _direction == -1:
 		flip()
 
 func flip():
