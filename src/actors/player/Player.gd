@@ -41,6 +41,8 @@ func _process(delta: float) -> void:
 			_shouting = false
 			_hey_bubble.visible = false
 			_shout_area.monitoring = false
+	if Input.is_action_just_pressed("start_0"):
+		_food_value = 8
 
 func _physics_process(delta: float) -> void:
 	var direction: = Vector2(
