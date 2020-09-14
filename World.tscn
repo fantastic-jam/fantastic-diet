@@ -188,8 +188,8 @@ autoplay = "Walk"
 anims/Walk = SubResource( 6 )
 
 [node name="PizzaSprite" parent="DeliveryGuy" instance=ExtResource( 7 )]
-position = Vector2( 0, 8 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -2.5, 4 )
+scale = Vector2( 1, 1 )
 z_index = 1
 script = null
 
@@ -242,6 +242,8 @@ position = Vector2( 192, 16 )
 script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Time"]
+position = Vector2( -4, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 12 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Time"]

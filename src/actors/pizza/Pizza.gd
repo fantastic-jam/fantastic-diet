@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 func travel_to_destination(delta:float) -> void:
 	var progression: float = get_travel_progression();
 	var curve: float = get_travel_curve(progression);
-	_sprite.scale = (1 + curve) * Vector2.ONE
+	_sprite.scale = (2 + curve) * Vector2.ONE
 	_sprite.offset.y = curve * -15;
 	translate(position.direction_to(_destination) * _speed * delta);
 

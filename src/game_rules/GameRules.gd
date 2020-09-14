@@ -11,6 +11,7 @@ func drop_pizza(origin: Vector2) -> void:
 	pizza.position = origin
 	pizza._creator = self
 	pizza.z_index = 1002
+
 	pizza._destination = _eat_zone.get_pizza_location()
 	add_child(pizza);
 	
