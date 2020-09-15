@@ -22,6 +22,7 @@ func on_pizza_destination_reached(pizza: Pizza) -> void:
 
 func game_over() -> void:
 	get_node("GameOver").visible = true
+	get_node("Time/Timer").stop()
 	_is_game_over = true
 
 func _input(event: InputEvent) -> void:
