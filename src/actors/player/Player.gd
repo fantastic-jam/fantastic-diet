@@ -21,7 +21,7 @@ onready var _shout_area = get_node("ShoutArea")
 onready var _root = get_tree().current_scene 
 
 var _hunger = 100
-var _hunger_decay = 37.8
+var _hunger_decay = 7.8
 var _food_value = 5
 
 var _dead = false
