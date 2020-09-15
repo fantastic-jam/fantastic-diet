@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/game-over.png-3c45c3cb87c8360b0e0a63eae999ca7a.stex"
+path="res://.import/bruno.png-c78d9b85cb35832892ea5b1e032225ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/game-over.png"
-dest_files=[ "res://.import/game-over.png-3c45c3cb87c8360b0e0a63eae999ca7a.stex" ]
+source_file="res://assets/sprites/bruno.png"
+dest_files=[ "res://.import/bruno.png-c78d9b85cb35832892ea5b1e032225ed.stex" ]
 
 [params]
 

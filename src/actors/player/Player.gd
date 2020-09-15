@@ -11,6 +11,7 @@ var _shout_cooldown = 1000
 
 onready var _animation_player = get_node("AnimationPlayer")
 onready var _sprite = get_node("Sprite")
+onready var _dead_sprite = get_node("DeadSprite")
 onready var _hunger_bar = get_node("HungerBarNode/HungerBar")
 onready var _hey_bubble = get_node("HeyBubble")
 var _hey_sounds = []
@@ -20,8 +21,10 @@ onready var _shout_area = get_node("ShoutArea")
 onready var _root = get_tree().current_scene 
 
 var _hunger = 100
-var _hunger_decay = 7.8
+var _hunger_decay = 37.8
 var _food_value = 5
+
+var _dead = false
 
 func _ready() -> void:
 	_hey_bubble.visible = false
@@ -32,9 +35,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_hunger(_hunger - (_hunger_decay * delta))
-	if _hunger < 0:
-		_root.game_over()
-		queue_free()
+	if _hunger < 0 && !_dead:
+		die()
 	if _shouting:
 		var now = OS.get_ticks_msec()
 		if now > (_last_shout + _shout_cooldown):
@@ -43,8 +45,21 @@ func _process(delta: float) -> void:
 			_shout_area.monitoring = false
 	if Input.is_action_just_pressed("start_0"):
 		_food_value = 8
+		
+func die() -> void:
+	_root.game_over()
+	_dead = true
+	_animation_player.play("Die")
+	_dead_sprite.visible = true
+	_dead_sprite.playing = true
+	_sprite.visible = false
+	get_node("CollisionShape2D").disabled = true
+	_dead_sprite.flip_h = _sprite.flip_h
+	_hunger_bar.visible = false
 
 func _physics_process(delta: float) -> void:
+	if _dead:
+		return
 	var direction: = Vector2(
 		(Input.get_action_strength(	"move_right_" + device) - Input.get_action_strength("move_left_" + device)) * speed,
 		(Input.get_action_strength("move_down_" + device) - Input.get_action_strength("move_up_" + device)) * speed / 2

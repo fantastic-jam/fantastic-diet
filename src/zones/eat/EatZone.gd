@@ -34,10 +34,10 @@ func update_pizza_count(value):
 		if eat_bar == 0:
 			update_eat_bar(100)
 		find_node("Sprite").visible = true
-		find_node("CountLabel").bbcode_text = "[center]" + String(pizza_count) + "[/center]"
+		find_node("CountLabel").text = String(pizza_count)
 	else:
 		find_node("Sprite").visible = false
-		find_node("CountLabel").bbcode_text = ""
+		find_node("CountLabel").text = ""
 	
 
 func _on_EatZone_body_entered(body: Node) -> void:

@@ -2,9 +2,10 @@ extends Node2D
 
 onready var _eat_zone = get_node("EatZone")
 
-# Called when the node enters the scene tree for the first time.
+var _is_game_over = false
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 func drop_pizza(origin: Vector2) -> void:
 	var pizza = preload("res://src/actors/pizza/Pizza.tscn").instance()
@@ -21,7 +22,11 @@ func on_pizza_destination_reached(pizza: Pizza) -> void:
 
 func game_over() -> void:
 	get_node("GameOver").visible = true
+	_is_game_over = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _input(event: InputEvent) -> void:
+	if _is_game_over:
+		if (event is InputEventKey
+		or event is InputEventMouseButton
+		or event is InputEventJoypadButton):
+			get_tree().reload_current_scene()

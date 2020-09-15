@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sprites/pizza.png" type="Texture" id=1]
 [ext_resource path="res://src/zones/eat/EatZone.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/pixelated.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.223529, 0.321569, 0.780392, 1 )
@@ -18,21 +19,23 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="CountLabel" type="RichTextLabel" parent="."]
-margin_top = 32.0
-margin_right = 48.0
-margin_bottom = 48.0
-bbcode_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_right = 48.0
 margin_bottom = 8.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountLabel" type="Label" parent="."]
+margin_top = 32.0
+margin_right = 52.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
