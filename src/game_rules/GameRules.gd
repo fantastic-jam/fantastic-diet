@@ -26,7 +26,7 @@ func game_over() -> void:
 	_is_game_over = true
 
 func _input(event: InputEvent) -> void:
-	if _is_game_over:
+	if _is_game_over and event.is_pressed() and not event.is_echo():
 		if (event is InputEventKey
 		or event is InputEventMouseButton
 		or event is InputEventJoypadButton):
