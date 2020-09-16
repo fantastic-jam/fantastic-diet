@@ -17,48 +17,47 @@
 [ext_resource path="res://assets/sprites/board.png" type="Texture" id=15]
 [ext_resource path="res://assets/fonts/pixelated-title.tres" type="DynamicFont" id=16]
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 10 )
 region = Rect2( 48, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 10 )
 region = Rect2( 96, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 10 )
 region = Rect2( 144, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 10 )
 region = Rect2( 192, 0, 48, 16 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 10 )
 region = Rect2( 240, 0, 48, 16 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": false,
 "name": "default",
 "speed": 7.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 4 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=8]
 radius = 72.4431
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.101961, 0.501961, 0.176471, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.509804, 0.00392157, 0.00392157, 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "Die"
+[sub_resource type="Animation" id=11]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("DeadSprite:position")
@@ -73,7 +72,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=12]
 length = 0.5
 loop = true
 step = 0.05
@@ -102,7 +101,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=13]
 length = 0.5
 loop = true
 step = 0.05
@@ -143,7 +142,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=14]
 radius = 27.0
 height = 44.0
 
@@ -199,13 +198,13 @@ region_rect = Rect2( 16, 0, 16, 16 )
 
 [node name="DeadSprite" type="AnimatedSprite" parent="Bruno"]
 visible = false
-frames = SubResource( 14 )
+frames = SubResource( 6 )
 centered = false
 offset = Vector2( -16, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno"]
 position = Vector2( 8, 12 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="ShoutArea" type="Area2D" parent="Bruno"]
 visible = false
@@ -213,7 +212,7 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno/ShoutArea"]
 position = Vector2( 8, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="HungerBarNode" type="Node2D" parent="Bruno"]
 z_index = 4096
@@ -223,8 +222,8 @@ z_as_relative = false
 margin_top = -3.0
 margin_right = 16.0
 margin_bottom = -1.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 10 )
 step = 1.0
 percent_visible = false
 __meta__ = {
@@ -232,8 +231,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bruno"]
-anims/Die = SubResource( 5 )
-anims/Walk = SubResource( 6 )
+anims/Die = SubResource( 11 )
+anims/Walk = SubResource( 12 )
 
 [node name="DeliveryGuy" type="KinematicBody2D" parent="."]
 position = Vector2( 577, 119 )
@@ -244,7 +243,7 @@ script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DeliveryGuy"]
 autoplay = "Walk"
-anims/Walk = SubResource( 7 )
+anims/Walk = SubResource( 13 )
 
 [node name="PizzaSprite" parent="DeliveryGuy" instance=ExtResource( 7 )]
 position = Vector2( -2.5, 4 )
@@ -261,7 +260,7 @@ region_rect = Rect2( 128, 224, 16, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryGuy"]
 position = Vector2( 8, 12 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="GruntBubble" type="Sprite" parent="DeliveryGuy"]
 position = Vector2( 20, -4 )
@@ -269,6 +268,8 @@ scale = Vector2( 0.3, 0.3 )
 z_index = 2000
 z_as_relative = false
 texture = ExtResource( 9 )
+
+[node name="Sfx" type="AudioStreamPlayer" parent="DeliveryGuy"]
 
 [node name="EatZone" parent="." instance=ExtResource( 5 )]
 position = Vector2( 70, 108 )
@@ -278,7 +279,7 @@ eat_bar = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatZone"]
 position = Vector2( 26, 43 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 14 )
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false

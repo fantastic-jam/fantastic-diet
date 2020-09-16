@@ -5,6 +5,8 @@ export var _max_speed = 80
 export var _direction = -1
 export var _pizza = true
 
+var _throw_sound = preload("res://assets/snd/throw.ogg")
+
 onready var _sprite = get_node("Sprite")
 onready var _grunt_bubble = get_node("GruntBubble")
 onready var _pizza_sprite = get_node("PizzaSprite")
@@ -76,6 +78,7 @@ func flip():
 	_pizza_sprite.visible = _pizza
 
 func throw_pizza() -> void:
+	play_sound("Sfx", _throw_sound)
 	_root.drop_pizza(get_node("PizzaSprite").global_position)
 
 func on_shouted_on(shouter: Node2D) -> void:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/throw.ogg-6b81239aaa1661b47c1acec5239566f7.oggstr"
+
+[deps]
+
+source_file="res://assets/snd/throw.ogg"
+dest_files=[ "res://.import/throw.ogg-6b81239aaa1661b47c1acec5239566f7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
