@@ -12,19 +12,7 @@ onready var _grunt_bubble = get_node("GruntBubble")
 onready var _pizza_sprite = get_node("PizzaSprite")
 onready var _root = get_node('/root/Root')
 
-var regions = [
-	Rect2(112, 224, 16, 16),
-	Rect2(128, 224, 16, 16),
-	Rect2(144, 224, 16, 16),
-	Rect2(160, 224, 16, 16),
-	Rect2(176, 224, 16, 16),
-	Rect2(96, 240, 16, 16),
-	Rect2(112, 240, 16, 16),
-	Rect2(128, 240, 16, 16),
-	Rect2(144, 240, 16, 16),
-	Rect2(160, 240, 16, 16),
-	Rect2(176, 240, 16, 16),
-]
+var _num_skins = 15;
 
 var _grunting = false
 var _last_grunt = 0
@@ -44,7 +32,7 @@ func _ready() -> void:
 	random_skin()
 	
 func random_skin() -> void:
-	_sprite.region_rect = regions[rng.randi() % regions.size()]
+	_sprite.frame = rng.randi() % _num_skins
 
 func _process(delta: float) -> void:
 	if _grunting:
@@ -56,7 +44,7 @@ func _process(delta: float) -> void:
 	if _speed < _min_speed:
 		_speed = _min_speed
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var velocity: = Vector2(
 		_direction * _speed,
 		0
@@ -78,8 +66,9 @@ func flip():
 	_pizza_sprite.visible = _pizza
 
 func throw_pizza() -> void:
-	play_sound("Sfx", _throw_sound)
-	_root.drop_pizza(get_node("PizzaSprite").global_position)
+	if not _root == null:
+		play_sound("Sfx", _throw_sound)
+		_root.drop_pizza(get_node("PizzaSprite").global_position)
 
 func on_shouted_on(shouter: Node2D) -> void:
 	grunt()

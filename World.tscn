@@ -1,15 +1,10 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/sprites/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
-[ext_resource path="res://src/actors/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://src/actors/delivery_guy/DeliveryGuy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/actors/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/dungeon.tres" type="TileSet" id=3]
-[ext_resource path="res://src/actors/delivery_guy/DeliveryGuy.gd" type="Script" id=4]
 [ext_resource path="res://src/zones/eat/EatZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/game_rules/GameRules.gd" type="Script" id=6]
-[ext_resource path="res://src/actors/pizza/PizzaSprite.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/bubbles/hey-bubble.png" type="Texture" id=8]
-[ext_resource path="res://assets/bubbles/grunt-buble.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/bruno.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/title.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/time.png" type="Texture" id=12]
 [ext_resource path="res://src/timer/Timer.gd" type="Script" id=13]
@@ -17,144 +12,7 @@
 [ext_resource path="res://assets/sprites/board.png" type="Texture" id=15]
 [ext_resource path="res://assets/fonts/pixelated-title.tres" type="DynamicFont" id=16]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 10 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 10 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 10 )
-region = Rect2( 48, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 10 )
-region = Rect2( 64, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 10 )
-region = Rect2( 80, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 10 )
-region = Rect2( 96, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 10 )
-region = Rect2( 112, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 10 )
-region = Rect2( 128, 0, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": false,
-"name": "default",
-"speed": 14.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 4, 4 )
-
-[sub_resource type="CircleShape2D" id=11]
-radius = 72.4431
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.101961, 0.501961, 0.176471, 1 )
-
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0.509804, 0.00392157, 0.00392157, 1 )
-
-[sub_resource type="Animation" id=14]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("DeadSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
-"transitions": PoolRealArray( 12.996, 3.13833, 1.03527 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=15]
-length = 0.5
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1.05 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=16]
-length = 0.5
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1.05 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PizzaSprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="CapsuleShape2D" id=17]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
 height = 44.0
 
@@ -186,101 +44,12 @@ cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 196610, 8, 0, 196611, 8, 2, 524288, 2, 1, 524289, 2, 1, 524290, 2, 1, 524291, 2, 1, 524292, 2, 1, 524293, 2, 1, 524294, 2, 1, 524295, 2, 1, 524296, 2, 1, 524297, 2, 1, 524298, 2, 1, 524299, 2, 1, 524300, 2, 1, 524301, 2, 1, 524302, 2, 1, 524303, 2, 1, 524304, 2, 1, 524305, 2, 1, 524306, 2, 1, 524307, 2, 1, 524308, 6, 131073, 589824, 2, 65537, 589825, 2, 131076, 589826, 2, 65537, 589827, 2, 65537, 589828, 2, 3, 589829, 2, 65537, 589830, 2, 65537, 589831, 2, 65537, 589832, 2, 65537, 589833, 2, 65537, 589834, 2, 65537, 589835, 2, 65537, 589836, 2, 65537, 589837, 2, 65537, 589838, 2, 65537, 589839, 2, 65537, 589840, 2, 65537, 589841, 2, 65537, 589842, 2, 131076, 589843, 2, 65537, 589844, 6, 65537, 589845, 6, 196610, 655360, 2, 65537, 655361, 2, 65537, 655362, 2, 65537, 655363, 2, 131076, 655364, 2, 65537, 655365, 2, 65537, 655366, 2, 65537, 655367, 2, 65537, 655368, 2, 131076, 655369, 2, 65537, 655370, 2, 65537, 655371, 2, 3, 655372, 2, 65537, 655373, 2, 131076, 655374, 2, 65537, 655375, 2, 196612, 655376, 2, 65537, 655377, 2, 65537, 655378, 2, 65537, 655379, 2, 65537, 655380, 6, 65537, 655381, 6, 196610, 720896, 2, 65537, 720897, 2, 65537, 720898, 2, 65537, 720899, 2, 65537, 720900, 2, 65537, 720901, 2, 65537, 720902, 2, 196612, 720903, 2, 65537, 720904, 2, 65537, 720905, 2, 65537, 720906, 2, 65537, 720907, 2, 196612, 720908, 2, 65537, 720909, 2, 65537, 720910, 2, 65537, 720911, 2, 196613, 720912, 2, 65537, 720913, 2, 65537, 720914, 2, 65537, 720915, 2, 65537, 720916, 6, 65537, 720917, 6, 196610 )
 
-[node name="Bruno" type="KinematicBody2D" parent="."]
+[node name="Bruno" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 96 )
-scale = Vector2( 2, 2 )
-collision_mask = 7
-script = ExtResource( 2 )
-speed = 300
 
-[node name="Speech" type="AudioStreamPlayer" parent="Bruno"]
-
-[node name="HeyBubble" type="Sprite" parent="Bruno"]
-position = Vector2( 28, -8 )
-scale = Vector2( 0.25, 0.25 )
-z_index = 2000
-z_as_relative = false
-texture = ExtResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Bruno"]
-texture = ExtResource( 10 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 16, 16 )
-
-[node name="DeadSprite" type="AnimatedSprite" parent="Bruno"]
-visible = false
-frames = SubResource( 9 )
-centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno"]
-position = Vector2( 8, 12 )
-shape = SubResource( 10 )
-
-[node name="ShoutArea" type="Area2D" parent="Bruno"]
-visible = false
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bruno/ShoutArea"]
-position = Vector2( 8, 8 )
-shape = SubResource( 11 )
-
-[node name="HungerBarNode" type="Node2D" parent="Bruno"]
-z_index = 4096
-z_as_relative = false
-
-[node name="HungerBar" type="ProgressBar" parent="Bruno/HungerBarNode"]
-margin_top = -3.0
-margin_right = 16.0
-margin_bottom = -1.0
-custom_styles/fg = SubResource( 12 )
-custom_styles/bg = SubResource( 13 )
-step = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bruno"]
-anims/Die = SubResource( 14 )
-anims/Walk = SubResource( 15 )
-
-[node name="DeliveryGuy" type="KinematicBody2D" parent="."]
+[node name="DeliveryGuy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 577, 119 )
 scale = Vector2( 2, 2 )
-collision_layer = 2
-collision_mask = 3
-script = ExtResource( 4 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DeliveryGuy"]
-autoplay = "Walk"
-anims/Walk = SubResource( 16 )
-
-[node name="PizzaSprite" parent="DeliveryGuy" instance=ExtResource( 7 )]
-position = Vector2( -2.5, 4 )
-scale = Vector2( 1, 1 )
-z_index = 1
-script = null
-
-[node name="Sprite" type="Sprite" parent="DeliveryGuy"]
-texture = ExtResource( 1 )
-centered = false
-flip_h = true
-region_enabled = true
-region_rect = Rect2( 128, 224, 16, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryGuy"]
-position = Vector2( 8, 12 )
-shape = SubResource( 10 )
-
-[node name="GruntBubble" type="Sprite" parent="DeliveryGuy"]
-position = Vector2( 20, -4 )
-scale = Vector2( 0.3, 0.3 )
-z_index = 2000
-z_as_relative = false
-texture = ExtResource( 9 )
-
-[node name="Sfx" type="AudioStreamPlayer" parent="DeliveryGuy"]
 
 [node name="EatZone" parent="." instance=ExtResource( 5 )]
 position = Vector2( 70, 108 )
@@ -290,7 +59,7 @@ eat_bar = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatZone"]
 position = Vector2( 26, 43 )
 rotation = 1.5708
-shape = SubResource( 17 )
+shape = SubResource( 1 )
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false
@@ -351,5 +120,4 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="Bruno/ShoutArea" to="Bruno" method="_on_ShoutArea_body_entered"]
 [connection signal="timeout" from="Time/Timer" to="Time" method="_on_Timer_timeout"]
