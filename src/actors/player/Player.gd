@@ -57,7 +57,7 @@ func die() -> void:
 	_dead_sprite.flip_h = _sprite.flip_h
 	_hunger_bar.visible = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(__delta: float) -> void:
 	if _dead:
 		return
 	var direction: = Vector2(
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_animation_player.play("Walk")
 
-	move_and_slide(direction)
+	var _result = move_and_slide(direction)
 
 	if Input.is_action_just_pressed("eat_0") && _is_in_eat_zone:
 		eat()
@@ -92,7 +92,7 @@ func _on_eat_zone_entered(eat_zone: Area2D) -> void:
 	_is_in_eat_zone = true
 	_eat_zone = eat_zone
 	
-func _on_eat_zone_exited(eat_zone: Area2D) -> void:
+func _on_eat_zone_exited(__eat_zone: Area2D) -> void:
 	_is_in_eat_zone = false
 	_eat_zone = null
 	

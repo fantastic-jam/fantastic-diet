@@ -30,4 +30,4 @@ func _input(event: InputEvent) -> void:
 		if (event is InputEventKey
 		or event is InputEventMouseButton
 		or event is InputEventJoypadButton):
-			get_tree().reload_current_scene()
+			var _result = get_tree().reload_current_scene()

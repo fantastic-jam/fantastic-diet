@@ -3,7 +3,7 @@ extends Area2D
 export var pizza_count = 0
 export var eat_bar = 100
 
-func _process(delta: float) -> void:
+func _process(__delta: float) -> void:
 	pass
 
 func _ready() -> void:

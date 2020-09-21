@@ -1,8 +1,8 @@
 extends KinematicBody2D
 class_name Actor
 
-func _process(delta: float) -> void:
-	z_index = position.y
+func _process(__delta: float) -> void:
+	z_index = int(position.y)
 
 func play_sound(sound_player_name: NodePath, sound: AudioStream) -> void:
 	var player = get_node(sound_player_name) as AudioStreamPlayer

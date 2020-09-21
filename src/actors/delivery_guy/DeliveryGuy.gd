@@ -49,7 +49,7 @@ func _physics_process(_delta: float) -> void:
 		_direction * _speed,
 		0
 	)
-	move_and_slide(velocity, Vector2.UP)
+	var _result = move_and_slide(velocity, Vector2.UP)
 	if position.x > 640 && _direction == 1:
 		flip()
 	if 	position.x < 200 && _direction == -1:
@@ -70,7 +70,7 @@ func throw_pizza() -> void:
 		play_sound("Sfx", _throw_sound)
 		_root.drop_pizza(get_node("PizzaSprite").global_position)
 
-func on_shouted_on(shouter: Node2D) -> void:
+func on_shouted_on(__shouter: Node2D) -> void:
 	grunt()
 	_speed += 10 + randi()%70+1
 	if _speed > _max_speed:
