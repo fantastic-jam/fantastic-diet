@@ -12,7 +12,7 @@ onready var _grunt_bubble = get_node("GruntBubble")
 onready var _pizza_sprite = get_node("PizzaSprite")
 onready var _root = get_node('/root/Root')
 
-var _num_skins = 14;
+onready var _num_skins = _sprite.frames.get_frame_count('default');
 
 var _grunting = false
 var _last_grunt = 0
