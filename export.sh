@@ -1,0 +1,1 @@
+godot --export HTML5 dist/html/index.html
