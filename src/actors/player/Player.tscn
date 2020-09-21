@@ -132,13 +132,13 @@ z_as_relative = false
 texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="DeadSprite" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 13 )
 centered = false
 

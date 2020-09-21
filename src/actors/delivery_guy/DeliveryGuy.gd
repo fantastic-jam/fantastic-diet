@@ -12,7 +12,7 @@ onready var _grunt_bubble = get_node("GruntBubble")
 onready var _pizza_sprite = get_node("PizzaSprite")
 onready var _root = get_node('/root/Root')
 
-var _num_skins = 15;
+var _num_skins = 14;
 
 var _grunting = false
 var _last_grunt = 0

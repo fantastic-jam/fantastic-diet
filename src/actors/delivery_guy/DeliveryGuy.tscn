@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/sprites/0x72_16x16DungeonTileset.v4.png" type="Texture" id=2]
 [ext_resource path="res://src/actors/pizza/PizzaSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/bubbles/grunt-buble.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/characters-spritesheet.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/chr.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/florian.png" type="Texture" id=7]
 
@@ -54,53 +55,49 @@ region = Rect2( 112, 224, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 224, 16, 16 )
+region = Rect2( 144, 224, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 144, 224, 16, 16 )
+region = Rect2( 176, 224, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 160, 224, 16, 16 )
+region = Rect2( 96, 240, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 176, 224, 16, 16 )
+region = Rect2( 112, 240, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 240, 16, 16 )
+region = Rect2( 128, 240, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 112, 240, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 240, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 2 )
-region = Rect2( 144, 240, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 2 )
 region = Rect2( 160, 240, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 2 )
-region = Rect2( 176, 240, 16, 16 )
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 2 ), ExtResource( 7 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 2 ), ExtResource( 7 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 4, 4 )
 
 [node name="DeliveryGuy" type="KinematicBody2D"]
@@ -113,7 +110,7 @@ autoplay = "Walk"
 anims/Walk = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 16 )
+frames = SubResource( 15 )
 centered = false
 flip_h = true
 
@@ -122,7 +119,7 @@ position = Vector2( -3, 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 12 )
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
 [node name="GruntBubble" type="Sprite" parent="."]
 position = Vector2( 20, -4 )
