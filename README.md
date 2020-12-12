@@ -6,4 +6,4 @@
   * 0x72_16x16DungeonTileset.v4.png
   * 0x72_16x16DungeonTileset_walls.v2.png
 
-* [Try the game](http://vps.ffxmail.com/fantastic-diet/)
+* [Try the game](https://christphe.itch.io/fantastic-diet)
